@@ -17,17 +17,24 @@ acima do peso ideal	27,8 <= imc < 31, 1
 obeso	imc >= 31,1
 */
 
-package org.ex005;
+package lista001.ex005;
 
-public class IMC {
+public class Pessoa {
+    private char sexo; //M ou F
     private float altura; //em metro
     private float peso; //em kg
-    private char sexo; //M ou F
 
     public char getSexo() {
-        return sexo;
+        return this.sexo;
     }
     public void setSexo(char sexo) {
+        if (sexo == 'm') {
+            sexo = 'M';
+        } else if (sexo == 'f') {
+            sexo = 'F';
+        } else if (sexo != 'M' && sexo != 'F') {
+            throw new IllegalArgumentException("Sexo invalido!");
+        }
         this.sexo = sexo;
     }
 
@@ -35,6 +42,9 @@ public class IMC {
         return this.altura;
     }
     public void setAltura(float altura) {
+        if (altura <= 0.0f) {
+            throw new IllegalArgumentException("Altura invalida!");
+        }
         this.altura = altura;
     }
 
@@ -42,6 +52,9 @@ public class IMC {
         return this.peso;
     }
     public void setPeso(float peso) {
+        if (peso <= 0.0f) {
+            throw new IllegalArgumentException("Peso invalido!");
+        }
         this.peso = peso;
     }
 
@@ -49,33 +62,31 @@ public class IMC {
         return this.peso / (this.altura * this.altura);
     }
 
-    public String informarIMC(float imc) {
+    public String informarImc(float imc) {
         if (this.sexo == 'F'){
             if (imc < 19.1f){
                 return "Abaixo do peso";
-            } else if (19.1f <= imc && imc < 25.8f) {
-                return "Abaixo do peso";
-            } else if (25.8f <= imc && imc < 27.3f) {
+            } else if (imc < 25.8f) {
+                return "No peso normal";
+            } else if (imc < 27.3f) {
                 return "Marginalmente acima do peso";
-            } else if (27.3f <= imc && imc < 32.3f) {
+            } else if (imc < 32.3f) {
                 return "Acima do peso ideal";
             } else {
                 return "Obeso";
             }
-        } else if (this.sexo == 'M'){
+        } else {
             if (imc < 20.7f){
                 return "Abaixo do peso";
-            } else if (20.7f <= imc && imc < 26.4f) {
-                return "Abaixo do peso";
-            } else if (26.4f <= imc && imc < 27.8f) {
+            } else if (imc < 26.4f) {
+                return "No peso normal";
+            } else if (imc < 27.8f) {
                 return "Marginalmente acima do peso";
-            } else if (27.8f <= imc && imc < 31.1f) {
+            } else if (imc < 31.1f) {
                 return "Acima do peso ideal";
             } else {
                 return "Obeso";
             }
-        } else{
-            return "Invalido!";
         }
     }
 }
