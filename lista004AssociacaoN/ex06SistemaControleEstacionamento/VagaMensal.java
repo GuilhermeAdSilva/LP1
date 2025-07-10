@@ -13,7 +13,11 @@ public class VagaMensal extends Vaga {
     }
 
     public void setQuantidadeMeses(int quantidadeMeses) {
-        this.quantidadeMeses = quantidadeMeses;
+        if (quantidadeMeses <= 0) {
+            throw new IllegalArgumentException("Numero de meses invalido");
+        } else {
+            this.quantidadeMeses = quantidadeMeses;
+        }
     }
 
     public float calcularAluguel(){

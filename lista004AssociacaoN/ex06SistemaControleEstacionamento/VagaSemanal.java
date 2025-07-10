@@ -13,7 +13,11 @@ public class VagaSemanal extends Vaga {
     }
 
     public void setQuantidadeSemanas(int quantidadeSemanas) {
-        this.quantidadeSemanas = quantidadeSemanas;
+        if (quantidadeSemanas <= 0) {
+            throw new IllegalArgumentException("Numero de semanas invalida");
+        } else {
+            this.quantidadeSemanas = quantidadeSemanas;
+        }
     }
 
     public float calcularAluguel(){

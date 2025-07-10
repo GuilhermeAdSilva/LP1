@@ -12,7 +12,11 @@ public class FitaEspecial extends Fita {
     }
 
     public void setValorAluguelDiario(float valorAluguelDiario) {
-        this.valorAluguelDiario = valorAluguelDiario;
+        if (valorAluguelDiario <= 0) {
+            throw new IllegalArgumentException("Valor invalido");
+        } else {
+            this.valorAluguelDiario = valorAluguelDiario;
+        }
     }
 
     public float calcularValorEmprestimoFita() {

@@ -14,7 +14,11 @@ public abstract class Frete {
     }
 
     public void setNumero(int numero) {
-        this.numero = numero;
+        if (numero <= 0) {
+            throw new IllegalArgumentException("Numero invalido");
+        } else {
+            this.numero = numero;
+        }
     }
 
     public Cliente getCliente() {
@@ -30,7 +34,11 @@ public abstract class Frete {
     }
 
     public void setValorFrete(float valorFrete) {
-        this.valorFrete = valorFrete;
+        if (valorFrete < 0) {
+            throw new IllegalArgumentException("Frete invalido");
+        } else {
+            this.valorFrete = valorFrete;
+        }
     }
 
     public abstract float calcularFrete();

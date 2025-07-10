@@ -13,7 +13,11 @@ public class VagaDiaria extends Vaga {
     }
 
     public void setQuantidadeDias(int quantidadeDias) {
-        this.quantidadeDias = quantidadeDias;
+        if (quantidadeDias <= 0) {
+            throw new IllegalArgumentException("Numero de dias invalido");
+        } else {
+            this.quantidadeDias = quantidadeDias;
+        }
     }
 
     public float calcularAluguel(){

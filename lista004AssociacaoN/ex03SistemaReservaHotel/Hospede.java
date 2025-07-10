@@ -16,7 +16,11 @@ public class Hospede {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome vazio");
+        } else {
+            this.nome = nome;
+        }
     }
 
     public int getCodigo() {
@@ -24,7 +28,11 @@ public class Hospede {
     }
 
     public void setCodigo(int codigo) {
-        this.codigo = codigo;
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("Codigo invalido");
+        } else {
+            this.codigo = codigo;
+        }
     }
 
     public ArrayList<Reserva> getReservas() {

@@ -8,7 +8,11 @@ public class ManutencaoCPU extends Manutencao {
     }
 
     public void setValorPecasTrocadas(float valorPecasTrocadas) {
-        this.valorPecasTrocadas = valorPecasTrocadas;
+        if (valorPecasTrocadas <= 0) {
+            throw new IllegalArgumentException("Valor invalido");
+        } else {
+            this.valorPecasTrocadas = valorPecasTrocadas;
+        }
     }
 
     public float calcularValorManutencao() {

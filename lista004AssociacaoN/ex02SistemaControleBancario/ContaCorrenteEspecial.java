@@ -13,7 +13,11 @@ public class ContaCorrenteEspecial extends ContaBancaria{
     }
 
     public void setLimiteCredito(float limiteCredito) {
-        this.limiteCredito = limiteCredito;
+        if (limiteCredito < 0) {
+            throw new IllegalArgumentException("Limite invalido");
+        } else {
+            this.limiteCredito = limiteCredito;
+        }
     }
 
     public float cacularSaldoDisponivel() {

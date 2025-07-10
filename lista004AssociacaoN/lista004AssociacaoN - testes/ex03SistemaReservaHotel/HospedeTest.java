@@ -1,5 +1,6 @@
 package lista004AssociacaoN.ex03SistemaReservaHotel;
 
+import lista004AssociacaoN.ex02SistemaControleBancario.Cliente;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -7,6 +8,42 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HospedeTest {
+    @Test
+    void deveAceitarCodigoMaiorQueZero() {
+        Hospede hospede = new Hospede();
+        hospede.setCodigo(1);
+        assertEquals(1, hospede.getCodigo());
+    }
+
+    @Test
+    void deveLancarExcecaoCodigoZeradoNegativo() {
+        Hospede hospede = new Hospede();
+        try {
+            hospede.setCodigo(0);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Codigo invalido", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveAceitarNomeNaoVazio() {
+        Hospede hospede = new Hospede();
+        hospede.setNome("Guilherme");
+        assertEquals("Guilherme", hospede.getNome());
+    }
+
+    @Test
+    void deveLancarExcecaoNomeVazio() {
+        Hospede hospede = new Hospede();
+        try {
+            hospede.setNome(" ");
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Nome vazio", e.getMessage());
+        }
+    }
+
 
     @Test
     void deveRetornarZeroReservas() {

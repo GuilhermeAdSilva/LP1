@@ -16,7 +16,11 @@ public class AlunoBolsistaParcial extends Aluno {
     }
 
     public void setValorMensalidade(float valorMensalidade) {
-        this.valorMensalidade = valorMensalidade;
+        if (valorMensalidade <= 0) {
+            throw new IllegalArgumentException("Mensalidade invalida");
+        } else {
+            this.valorMensalidade = valorMensalidade;
+        }
     }
 
     public float getQuantidadeParcelas() {
@@ -24,7 +28,11 @@ public class AlunoBolsistaParcial extends Aluno {
     }
 
     public void setQuantidadeParcelas(float quantidadeParcelas) {
-        this.quantidadeParcelas = quantidadeParcelas;
+        if (quantidadeParcelas <= 0) {
+            throw new IllegalArgumentException("Quantidade de parcelas invalida");
+        } else {
+            this.quantidadeParcelas = quantidadeParcelas;
+        }
     }
 
     public float getPercentualDesconto() {
@@ -32,10 +40,17 @@ public class AlunoBolsistaParcial extends Aluno {
     }
 
     public void setPercentualDesconto(float percentualDesconto) {
-        if (percentualDesconto > 50) {
+        if (percentualDesconto <= 0) {
+            throw new IllegalArgumentException("Desconto invalido");
+        }
+        else if (percentualDesconto > 50) {
             throw new IllegalArgumentException("O desconto nao pode ser superior a 50%");
         } else {
             this.percentualDesconto = percentualDesconto;
         }
+    }
+
+    public float calcularMensalidade() {
+        return (this.valorMensalidade - (this.valorMensalidade * (this.percentualDesconto/100)));
     }
 }

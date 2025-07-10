@@ -8,7 +8,11 @@ public class ReservaTriplo extends Reserva {
     }
 
     public void setNumeroRefeicoes(int numeroRefeicoes) {
-        this.numeroRefeicoes = numeroRefeicoes;
+        if (numeroRefeicoes < 0) {
+            throw new IllegalArgumentException("Numero de refeições invalido");
+        } else {
+            this.numeroRefeicoes = numeroRefeicoes;
+        }
     }
 
     public float calcularValorReserva() {

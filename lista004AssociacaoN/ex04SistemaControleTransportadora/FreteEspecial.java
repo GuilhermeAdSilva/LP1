@@ -13,7 +13,11 @@ public class FreteEspecial extends Frete{
     }
 
     public void setTaxaEntrega(float taxaEntrega) {
-        this.taxaEntrega = taxaEntrega;
+        if (taxaEntrega < 0) {
+            throw new IllegalArgumentException("Taxa invalida");
+        } else {
+            this.taxaEntrega = taxaEntrega;
+        }
     }
 
     public float calcularFrete() {

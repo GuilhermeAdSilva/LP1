@@ -18,7 +18,11 @@ public abstract class Aluno {
     }
 
     public void setMatricula(int matricula) {
-        this.matricula = matricula;
+        if (matricula <= 0) {
+            throw new IllegalArgumentException("Matricula invalida");
+        } else {
+            this.matricula = matricula;
+        }
     }
 
     public String getNome() {
@@ -26,7 +30,11 @@ public abstract class Aluno {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome invalido");
+        } else {
+            this.nome = nome;
+        }
     }
 
     public String getEndereco() {
@@ -34,7 +42,11 @@ public abstract class Aluno {
     }
 
     public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        if (endereco.trim().isEmpty()) {
+            throw new IllegalArgumentException("Endereço invalido");
+        } else {
+            this.endereco = endereco;
+        }
     }
 
     public Curso getCurso() {

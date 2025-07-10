@@ -1,5 +1,6 @@
 package lista004AssociacaoN.ex02SistemaControleBancario;
 
+import lista004AssociacaoN.ex01SistemaArrecadaçãoIPTU.Contribuinte;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -7,6 +8,41 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClienteTest {
+    @Test
+    void deveAceitarCodigoMaiorQueZero() {
+        Cliente cliente = new Cliente();
+        cliente.setCodigo(1);
+        assertEquals(1, cliente.getCodigo());
+    }
+
+    @Test
+    void deveLancarExcecaoCodigoZeradoNegativo() {
+        Cliente cliente = new Cliente();
+        try {
+            cliente.setCodigo(0);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Codigo invalido", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveAceitarNomeNaoVazio() {
+        Cliente cliente = new Cliente();
+        cliente.setNome("Guilherme");
+        assertEquals("Guilherme", cliente.getNome());
+    }
+
+    @Test
+    void deveLancarExcecaoNomeVazio() {
+        Cliente cliente = new Cliente();
+        try {
+            cliente.setNome(" ");
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Nome vazio", e.getMessage());
+        }
+    }
 
     @Test
     void deveRetornarZeroContas() {

@@ -15,7 +15,11 @@ public class FreteUrgente extends Frete{
     }
 
     public void setTaxaEntrega(float taxaEntrega) {
-        this.taxaEntrega = taxaEntrega;
+        if (taxaEntrega < 0) {
+            throw new IllegalArgumentException("Taxa invalida");
+        } else {
+            this.taxaEntrega = taxaEntrega;
+        }
     }
 
     public int getQuantidadeItens() {
@@ -23,7 +27,11 @@ public class FreteUrgente extends Frete{
     }
 
     public void setQuantidadeItens(int quantidadeItens) {
-        this.quantidadeItens = quantidadeItens;
+        if (quantidadeItens <= 0) {
+            throw new IllegalArgumentException("Numero invalido de itens");
+        } else {
+            this.quantidadeItens = quantidadeItens;
+        }
     }
 
     public float calcularFrete() {

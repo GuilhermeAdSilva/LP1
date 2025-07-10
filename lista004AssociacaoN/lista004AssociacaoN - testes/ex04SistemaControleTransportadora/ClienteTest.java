@@ -8,6 +8,42 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ClienteTest {
     @Test
+    void deveAceitarCodigoMaiorQueZero() {
+        lista004AssociacaoN.ex02SistemaControleBancario.Cliente cliente = new lista004AssociacaoN.ex02SistemaControleBancario.Cliente();
+        cliente.setCodigo(1);
+        assertEquals(1, cliente.getCodigo());
+    }
+
+    @Test
+    void deveLancarExcecaoCodigoZeradoNegativo() {
+        lista004AssociacaoN.ex02SistemaControleBancario.Cliente cliente = new lista004AssociacaoN.ex02SistemaControleBancario.Cliente();
+        try {
+            cliente.setCodigo(0);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Codigo invalido", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveAceitarNomeNaoVazio() {
+        lista004AssociacaoN.ex02SistemaControleBancario.Cliente cliente = new lista004AssociacaoN.ex02SistemaControleBancario.Cliente();
+        cliente.setNome("Guilherme");
+        assertEquals("Guilherme", cliente.getNome());
+    }
+
+    @Test
+    void deveLancarExcecaoNomeVazio() {
+        lista004AssociacaoN.ex02SistemaControleBancario.Cliente cliente = new lista004AssociacaoN.ex02SistemaControleBancario.Cliente();
+        try {
+            cliente.setNome(" ");
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Nome vazio", e.getMessage());
+        }
+    }
+
+    @Test
     void deveRetornarZeroFretes() {
         Cliente cliente = new Cliente();
         assertEquals(0, cliente.calcularQuantidadeFretes());

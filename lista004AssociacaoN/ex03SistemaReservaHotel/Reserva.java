@@ -17,7 +17,11 @@ public abstract class Reserva {
     }
 
     public void setDiasHospedagem(int diasHospedagem) {
-        this.diasHospedagem = diasHospedagem;
+        if (diasHospedagem <= 0) {
+            throw new IllegalArgumentException("Dias invalidos");
+        } else {
+            this.diasHospedagem = diasHospedagem;
+        }
     }
 
     public abstract float calcularValorReserva();

@@ -2,7 +2,7 @@ package lista004AssociacaoN.ex08SistemaControleAcademico;
 
 public class AlunoMensalista extends Aluno {
     private float valorMensalidade;
-    private float quantidadeParcelas;
+    private int quantidadeParcelas;
 
     public AlunoMensalista(Curso curso) {
         super(curso);
@@ -15,15 +15,23 @@ public class AlunoMensalista extends Aluno {
     }
 
     public void setValorMensalidade(float valorMensalidade) {
-        this.valorMensalidade = valorMensalidade;
+        if (valorMensalidade <= 0) {
+            throw new IllegalArgumentException("Mensalidade invalida");
+        } else {
+            this.valorMensalidade = valorMensalidade;
+        }
     }
 
-    public float getQuantidadeParcelas() {
+    public int getQuantidadeParcelas() {
         return this.quantidadeParcelas;
     }
 
-    public void setQuantidadeParcelas(float quantidadeParcelas) {
-        this.quantidadeParcelas = quantidadeParcelas;
+    public void setQuantidadeParcelas(int quantidadeParcelas) {
+        if (quantidadeParcelas <= 0) {
+            throw new IllegalArgumentException("Quantidade de parcelas invalida");
+        } else {
+            this.quantidadeParcelas = quantidadeParcelas;
+        }
     }
 }
 
