@@ -60,7 +60,13 @@ public class Curso {
     }
 
     public void matricularAluno(Aluno aluno) {
-        this.alunos.add(aluno);
+        if (!this.alunos.contains(aluno)) {
+            this.alunos.add(aluno);
+        }
+    }
+
+    public void desmatricularAluno(Aluno aluno) {
+        this.alunos.remove(aluno);
     }
 
     public int calcularNumeroAlunos() {

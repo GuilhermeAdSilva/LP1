@@ -61,9 +61,30 @@ class ClienteTest {
     void deveAlugarMaisDeUmaFita() {
         Cliente cliente = new Cliente();
         Fita fita = new FitaCatalogo();
+        Fita fita2 = new FitaCatalogo();
         cliente.alugarFita(fita);
-        cliente.alugarFita(fita);
+        cliente.alugarFita(fita2);
         assertEquals(2, cliente.calcularQuantiadeFitasAlugadas());
+    }
+
+    @Test
+    void naoDeveAlocarMesmoObjeto() {
+        Cliente cliente = new Cliente();
+        Fita fita = new FitaCatalogo();
+        cliente.alugarFita(fita);
+        cliente.alugarFita(fita);
+        assertEquals(1, cliente.calcularQuantiadeFitasAlugadas());
+    }
+
+    @Test
+    void deveDevolverUmaFita() {
+        Cliente cliente = new Cliente();
+        Fita fita = new FitaCatalogo();
+        Fita fita2 = new FitaCatalogo();
+        cliente.alugarFita(fita);
+        cliente.alugarFita(fita2);
+        cliente.devolverFita(fita);
+        assertEquals(1, cliente.calcularQuantiadeFitasAlugadas());
     }
 
     @Test

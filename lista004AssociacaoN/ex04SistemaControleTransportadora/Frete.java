@@ -1,9 +1,9 @@
 package lista004AssociacaoN.ex04SistemaControleTransportadora;
 
 public abstract class Frete {
-    protected int numero;
-    protected Cliente cliente;
-    protected float valorFrete;
+    private int numero;
+    private Cliente cliente;
+    private float valorFrete;
 
     public Frete() {
         this.numero = 0;

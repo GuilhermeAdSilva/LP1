@@ -3,8 +3,8 @@ package lista004AssociacaoN.ex05SistemaManutencaoEquipamentos;
 public abstract class Manutencao {
     private Cliente cliente;
     private int numeroManutencao;
-    protected float valorMaoDeObra;
-    protected String tipoEquipamento;
+    private float valorMaoDeObra;
+    private String tipoEquipamento;
 
     public Manutencao() {
         this.numeroManutencao = 0;

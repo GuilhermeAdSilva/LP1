@@ -3,6 +3,11 @@ package lista004AssociacaoN.ex05SistemaManutencaoEquipamentos;
 public class ManutencaoCPU extends Manutencao {
     private float valorPecasTrocadas;
 
+    public ManutencaoCPU() {
+        super();
+        this.valorPecasTrocadas = 0;
+    }
+
     public float getValorPecasTrocadas() {
         return this.valorPecasTrocadas;
     }
@@ -16,6 +21,6 @@ public class ManutencaoCPU extends Manutencao {
     }
 
     public float calcularValorManutencao() {
-        return (this.valorPecasTrocadas + this.valorMaoDeObra);
+        return (this.valorPecasTrocadas + this.getValorMaoDeObra());
     }
 }

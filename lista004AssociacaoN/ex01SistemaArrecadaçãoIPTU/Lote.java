@@ -19,7 +19,7 @@ public class Lote extends Imovel{
         }
     }
 
-    public float getValorImovel(){
+    public float calcularValorImovel(){
         return (this.metragemQuadradaTerreno * 30);
     }
 }

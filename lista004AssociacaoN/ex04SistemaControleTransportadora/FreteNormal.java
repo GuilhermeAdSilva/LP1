@@ -6,6 +6,6 @@ public class FreteNormal extends Frete {
         super();
     }
     public float calcularFrete() {
-        return this.valorFrete;
+        return this.getValorFrete();
     }
 }

@@ -79,9 +79,30 @@ class CursoTest {
     void deveRetornarMaisDeUmAluno() {
         Curso curso = new Curso();
         Aluno aluno = new AlunoMensalista(curso);
+        Aluno aluno2 = new AlunoMensalista(curso);
         curso.matricularAluno(aluno);
-        curso.matricularAluno(aluno);
+        curso.matricularAluno(aluno2);
         assertEquals(2, curso.calcularNumeroAlunos());
+    }
+
+    @Test
+    void NaodeveAlocarMesmoObjeto() {
+        Curso curso = new Curso();
+        Aluno aluno = new AlunoMensalista(curso);
+        curso.matricularAluno(aluno);
+        curso.matricularAluno(aluno);
+        assertEquals(1, curso.calcularNumeroAlunos());
+    }
+
+    @Test
+    void deveDesmatricularUmAluno() {
+        Curso curso = new Curso();
+        Aluno aluno = new AlunoMensalista(curso);
+        Aluno aluno2 = new AlunoMensalista(curso);
+        curso.matricularAluno(aluno);
+        curso.matricularAluno(aluno2);
+        curso.desmatricularAluno(aluno2);
+        assertEquals(1, curso.calcularNumeroAlunos());
     }
 
     @Test

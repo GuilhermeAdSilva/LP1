@@ -46,7 +46,13 @@ public class Cliente {
     }
 
     public void alugarFita(Fita fita) {
-        this.fitas.add(fita);
+        if (!this.fitas.contains(fita)) {
+            this.fitas.add(fita);
+        }
+    }
+
+    public void devolverFita(Fita fita) {
+        this.fitas.remove(fita);
     }
 
     public int calcularQuantiadeFitasAlugadas() {

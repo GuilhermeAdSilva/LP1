@@ -46,7 +46,13 @@ public class Cliente {
     }
 
     public void alocarFrete(Frete frete) {
-        this.fretes.add(frete);
+        if (!this.fretes.contains(frete)) {
+            this.fretes.add(frete);
+        }
+    }
+
+    public void removerFrete(Frete frete) {
+        this.fretes.remove(frete);
     }
 
     public int calcularQuantidadeFretes() {

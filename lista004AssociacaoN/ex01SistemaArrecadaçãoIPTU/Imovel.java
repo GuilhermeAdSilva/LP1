@@ -1,7 +1,7 @@
 package lista004AssociacaoN.ex01SistemaArrecadaçãoIPTU;
 
 public abstract class Imovel {
-    Contribuinte contribuinte;
+    private Contribuinte contribuinte;
 
     public Imovel() {
         this.contribuinte = getContribuinte();
@@ -15,5 +15,5 @@ public abstract class Imovel {
         this.contribuinte = contribuinte;
     }
 
-    public abstract float getValorImovel();
+    public abstract float calcularValorImovel();
 }

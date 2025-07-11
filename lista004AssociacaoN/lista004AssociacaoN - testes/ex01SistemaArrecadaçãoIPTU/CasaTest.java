@@ -47,7 +47,7 @@ class CasaTest {
         Casa casa = new Casa();
         casa.setMetragemQuadradaTerreno(10);
         casa.setMetragemQuadradaConstrucao(2);
-        assertEquals(400, casa.getValorImovel());
+        assertEquals(400, casa.calcularValorImovel());
     }
 
 }

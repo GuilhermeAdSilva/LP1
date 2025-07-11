@@ -49,7 +49,13 @@ public class Cliente {
     }
 
     public void alocarConta(ContaBancaria conta) {
-        this.contas.add(conta);
+        if (!this.contas.contains(conta)) {
+            this.contas.add(conta);
+        }
+    }
+
+    public void removerConta(ContaBancaria conta) {
+        this.contas.remove(conta);
     }
 
     public int numeroDeContas() {

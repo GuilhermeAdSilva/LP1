@@ -28,7 +28,7 @@ class LoteTest {
     void deveCalcularValorLote() {
         Lote lote = new Lote();
         lote.setMetragemQuadradaTerreno(10);
-        assertEquals(300, lote.getValorImovel());
+        assertEquals(300, lote.calcularValorImovel());
     }
 
 }

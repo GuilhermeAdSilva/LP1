@@ -33,7 +33,7 @@ public class Casa extends Imovel{
         }
     }
 
-    public float getValorImovel(){
+    public float calcularValorImovel(){
         return ((this.metragemQuadradaTerreno * 30) + (this.metragemQuadradaConstrucao * 50));
     }
 }

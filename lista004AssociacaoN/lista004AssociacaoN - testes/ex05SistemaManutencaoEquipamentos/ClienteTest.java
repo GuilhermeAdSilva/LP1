@@ -60,10 +60,31 @@ class ClienteTest {
     @Test
     void deveRetornarMaisDeUmaManutencao() {
         ManutencaoCPU manutencao = new ManutencaoCPU();
+        ManutencaoCPU manutencao2 = new ManutencaoCPU();
+        Cliente cliente = new Cliente();
+        cliente.alocarManutencao(manutencao);
+        cliente.alocarManutencao(manutencao2);
+        assertEquals(2, cliente.numeroManutencoes());
+    }
+
+    @Test
+    void naoDeveRetornarMesmoObjeto() {
+        ManutencaoCPU manutencao = new ManutencaoCPU();
         Cliente cliente = new Cliente();
         cliente.alocarManutencao(manutencao);
         cliente.alocarManutencao(manutencao);
-        assertEquals(2, cliente.numeroManutencoes());
+        assertEquals(1, cliente.numeroManutencoes());
+    }
+
+    @Test
+    void deveRemoverUmaManutencao() {
+        ManutencaoCPU manutencao = new ManutencaoCPU();
+        ManutencaoCPU manutencao2 = new ManutencaoCPU();
+        Cliente cliente = new Cliente();
+        cliente.alocarManutencao(manutencao);
+        cliente.alocarManutencao(manutencao2);
+        cliente.removerManutencao(manutencao);
+        assertEquals(1, cliente.numeroManutencoes());
     }
 
     @Test

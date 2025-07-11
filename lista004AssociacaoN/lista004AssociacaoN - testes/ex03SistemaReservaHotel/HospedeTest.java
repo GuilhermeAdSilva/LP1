@@ -72,6 +72,30 @@ class HospedeTest {
     }
 
     @Test
+    void naoDeveAlocarMesmoObjeto() {
+        Reserva reserva = new ReservaSingle();
+
+        Hospede hospede = new Hospede();
+        hospede.alocarReserva(reserva);
+        hospede.alocarReserva(reserva);
+
+        assertEquals(1, hospede.numeroReservas());
+    }
+
+    @Test
+    void deveRemoverReserva() {
+        Reserva reserva = new ReservaSingle();
+        Reserva reserva1 = new ReservaTriplo();
+
+        Hospede hospede = new Hospede();
+        hospede.alocarReserva(reserva);
+        hospede.alocarReserva(reserva1);
+        hospede.removerReserva(reserva1);
+
+        assertEquals(1, hospede.numeroReservas());
+    }
+
+    @Test
     void deveRetornarReservasHospede() {
         ReservaSingle reserva = new ReservaSingle();
         ReservaDuplo reserva1 = new ReservaDuplo();

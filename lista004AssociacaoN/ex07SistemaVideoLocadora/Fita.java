@@ -6,7 +6,7 @@ public abstract class Fita {
     private Date data;
     private String nomeFilme;
     private Cliente cliente;
-    protected int quantidadeDiasEmprestimo;
+    private int quantidadeDiasEmprestimo;
     private String tipoFita;
 
     public Fita() {

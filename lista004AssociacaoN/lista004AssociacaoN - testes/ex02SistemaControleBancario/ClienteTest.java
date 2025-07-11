@@ -69,19 +69,42 @@ class ClienteTest {
     }
 
     @Test
+    void NaodeveAlocarMesmoObjeto() {
+        Cliente cliente = new Cliente();
+        ContaCorrenteEspecial conta = new ContaCorrenteEspecial();
+        cliente.alocarConta(conta);
+        cliente.alocarConta(conta);
+        assertEquals(1, cliente.numeroDeContas());
+    }
+
+    @Test
+    void deveRemoverUmaConta() {
+        Cliente cliente = new Cliente();
+        ContaCorrenteEspecial conta1 = new ContaCorrenteEspecial();
+        cliente.alocarConta(conta1);
+        ContaPoupanca conta2 = new ContaPoupanca();
+        cliente.alocarConta(conta2);
+        cliente.removerConta(conta1);
+        assertEquals(1, cliente.numeroDeContas());
+    }
+
+    @Test
     void deveRetornarListaQuantidadeContas() {
         Cliente cliente = new Cliente();
 
         ContaCorrenteNormal conta1 = new ContaCorrenteNormal();
         ContaCorrenteEspecial conta2 = new ContaCorrenteEspecial();
         ContaPoupanca conta3 = new ContaPoupanca();
+        ContaCorrenteNormal conta4 = new ContaCorrenteNormal();
+        ContaCorrenteNormal conta5 = new ContaCorrenteNormal();
+        ContaPoupanca conta6 = new ContaPoupanca();
 
         cliente.alocarConta(conta1);
         cliente.alocarConta(conta2);
         cliente.alocarConta(conta3);
-        cliente.alocarConta(conta1);
-        cliente.alocarConta(conta1);
-        cliente.alocarConta(conta3);
+        cliente.alocarConta(conta4);
+        cliente.alocarConta(conta5);
+        cliente.alocarConta(conta6);
 
         String resposta = "Contas Corrente Normal: 3, Contas Corrente Especial: 1, Contas Poupança: 2";
         assertEquals(resposta, cliente.contasPorCliente());

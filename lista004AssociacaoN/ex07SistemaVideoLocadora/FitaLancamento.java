@@ -20,6 +20,6 @@ public class FitaLancamento extends Fita {
     }
 
     public float calcularValorEmprestimoFita() {
-        return (this.quantidadeDiasEmprestimo * this.valorAluguelDiario);
+        return (this.getQuantidadeDiasEmprestimo() * this.valorAluguelDiario);
     }
 }

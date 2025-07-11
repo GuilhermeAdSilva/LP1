@@ -60,10 +60,31 @@ class ClienteTest {
     @Test
     void deveRetornarMaisDeUmaVaga() {
         Vaga vaga = new VagaDiaria();
+        Vaga vaga2 = new VagaDiaria();
+        Cliente cliente = new Cliente();
+        cliente.reservarVaga(vaga);
+        cliente.reservarVaga(vaga2);
+        assertEquals(2, cliente.calcularNumeroVagas());
+    }
+
+    @Test
+    void naoDeveAlocarMesmoObjeto() {
+        Vaga vaga = new VagaDiaria();
         Cliente cliente = new Cliente();
         cliente.reservarVaga(vaga);
         cliente.reservarVaga(vaga);
-        assertEquals(2, cliente.calcularNumeroVagas());
+        assertEquals(1, cliente.calcularNumeroVagas());
+    }
+
+    @Test
+    void deveLiberarUmaVaga() {
+        Vaga vaga = new VagaDiaria();
+        Vaga vaga2 = new VagaDiaria();
+        Cliente cliente = new Cliente();
+        cliente.reservarVaga(vaga);
+        cliente.reservarVaga(vaga2);
+        cliente.liberarVaga(vaga);
+        assertEquals(1, cliente.calcularNumeroVagas());
     }
 
     @Test

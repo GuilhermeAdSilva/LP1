@@ -21,6 +21,6 @@ public class FreteEspecial extends Frete{
     }
 
     public float calcularFrete() {
-        return (this.valorFrete + this.taxaEntrega);
+        return (this.getValorFrete() + this.taxaEntrega);
     }
 }

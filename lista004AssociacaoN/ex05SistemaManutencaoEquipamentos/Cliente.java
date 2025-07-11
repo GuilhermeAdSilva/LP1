@@ -46,7 +46,13 @@ public class Cliente {
     }
 
     public void alocarManutencao(Manutencao manutencao) {
-        this.manutencoes.add((manutencao));
+        if (!this.manutencoes.contains(manutencao)) {
+            this.manutencoes.add((manutencao));
+        }
+    }
+
+    public void removerManutencao(Manutencao manutencao) {
+        this.manutencoes.remove(manutencao);
     }
 
     public int numeroManutencoes() {

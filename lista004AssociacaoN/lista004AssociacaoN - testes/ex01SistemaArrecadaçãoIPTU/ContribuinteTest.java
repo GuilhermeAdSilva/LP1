@@ -69,6 +69,26 @@ class ContribuinteTest {
     }
 
     @Test
+    void naoDeveAlocarMesmoObjeto(){
+        Contribuinte contribuinte = new Contribuinte();
+        Imovel imovel = new Apartamento();
+        contribuinte.alocarImovel(imovel);
+        contribuinte.alocarImovel(imovel);
+        assertEquals(1, contribuinte.getNumeroImoveis());
+    }
+
+    @Test
+    void deveRemoverImovel(){
+        Contribuinte contribuinte = new Contribuinte();
+        Imovel imovel = new Apartamento();
+        contribuinte.alocarImovel(imovel);
+        Imovel imovel2 = new Lote();
+        contribuinte.alocarImovel(imovel2);
+        contribuinte.removerImovel(imovel);
+        assertEquals(1, contribuinte.getNumeroImoveis());
+    }
+
+    @Test
     void deveRetornarListaValoresImoveis() {
         Lote lote = new Lote();
         lote.setMetragemQuadradaTerreno(10);

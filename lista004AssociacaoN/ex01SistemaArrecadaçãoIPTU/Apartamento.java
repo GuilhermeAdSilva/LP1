@@ -34,7 +34,7 @@ public class Apartamento extends Imovel{
         }
     }
 
-    public float getValorImovel() {
+    public float calcularValorImovel() {
         float valor = (this.metragemQuadradaApartamento * 40);
         if (this.andar > 1 && this.andar <= 10) {
             valor -= (valor * (this.andar-1) * 0.1f);

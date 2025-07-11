@@ -46,7 +46,13 @@ public class Cliente {
     }
 
     public void reservarVaga(Vaga vaga) {
-        this.vagas.add(vaga);
+        if (!this.vagas.contains(vaga)) {
+            this.vagas.add(vaga);
+        }
+    }
+
+    public void liberarVaga(Vaga vaga) {
+        this.vagas.remove(vaga);
     }
 
     public int calcularNumeroVagas() {

@@ -44,7 +44,13 @@ public class Hospede {
     }
 
     public void alocarReserva(Reserva reserva) {
-        this.reservas.add(reserva);
+        if (!this.reservas.contains(reserva)) {
+            this.reservas.add(reserva);
+        }
+    }
+
+    public void removerReserva(Reserva reserva) {
+        this.reservas.remove(reserva);
     }
 
     public int numeroReservas() {

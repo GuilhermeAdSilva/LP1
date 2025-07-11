@@ -47,7 +47,7 @@ class ApartamentoTest {
         Apartamento apartamento = new Apartamento();
         apartamento.setAndar(1);
         apartamento.setMetragemQuadradaApartamento(10);
-        assertEquals(400, apartamento.getValorImovel());
+        assertEquals(400, apartamento.calcularValorImovel());
     }
 
     @Test
@@ -55,7 +55,7 @@ class ApartamentoTest {
         Apartamento apartamento = new Apartamento();
         apartamento.setAndar(2);
         apartamento.setMetragemQuadradaApartamento(10);
-        assertEquals(360, apartamento.getValorImovel());
+        assertEquals(360, apartamento.calcularValorImovel());
     }
 
     @Test
@@ -63,7 +63,7 @@ class ApartamentoTest {
         Apartamento apartamento = new Apartamento();
         apartamento.setAndar(11);
         apartamento.setMetragemQuadradaApartamento(10);
-        assertEquals(40, apartamento.getValorImovel());
+        assertEquals(40, apartamento.calcularValorImovel());
     }
 
 }

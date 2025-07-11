@@ -46,7 +46,13 @@ public class Contribuinte {
     }
 
     public void alocarImovel(Imovel imovel) {
-        this.imoveis.add(imovel);
+        if (!this.imoveis.contains(imovel)) {
+            this.imoveis.add(imovel);
+        }
+    }
+
+    public void removerImovel(Imovel imovel) {
+        this.imoveis.remove(imovel);
     }
 
     public int getNumeroImoveis() {
@@ -70,7 +76,7 @@ public class Contribuinte {
     public ArrayList<Float> getValorImoveis() {
         ArrayList<Float> resultado = new ArrayList<Float>();
         for (Imovel imovel : this.imoveis) {
-            resultado.add(imovel.getValorImovel());
+            resultado.add(imovel.calcularValorImovel());
         }
         return resultado;
     }

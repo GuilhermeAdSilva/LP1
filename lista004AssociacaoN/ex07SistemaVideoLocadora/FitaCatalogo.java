@@ -6,6 +6,6 @@ public class FitaCatalogo extends Fita {
     }
 
     public float calcularValorEmprestimoFita() {
-        return (this.quantidadeDiasEmprestimo * 5);
+        return (this.getQuantidadeDiasEmprestimo() * 5);
     }
 }

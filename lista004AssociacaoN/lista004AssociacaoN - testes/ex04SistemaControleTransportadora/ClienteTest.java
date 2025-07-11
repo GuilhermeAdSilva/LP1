@@ -61,9 +61,30 @@ class ClienteTest {
     void deveRetornarMaisDeUmFrete() {
         Cliente cliente = new Cliente();
         FreteNormal frete = new FreteNormal();
+        FreteNormal frete2 = new FreteNormal();
         cliente.alocarFrete(frete);
-        cliente.alocarFrete(frete);
+        cliente.alocarFrete(frete2);
         assertEquals(2, cliente.calcularQuantidadeFretes());
+    }
+
+    @Test
+    void naoDeveAlocarMesmoObjeto() {
+        Cliente cliente = new Cliente();
+        FreteNormal frete = new FreteNormal();
+        cliente.alocarFrete(frete);
+        cliente.alocarFrete(frete);
+        assertEquals(1, cliente.calcularQuantidadeFretes());
+    }
+
+    @Test
+    void deveRemoverUmFrete() {
+        Cliente cliente = new Cliente();
+        FreteNormal frete = new FreteNormal();
+        FreteNormal frete2 = new FreteNormal();
+        cliente.alocarFrete(frete);
+        cliente.alocarFrete(frete2);
+        cliente.removerFrete(frete);
+        assertEquals(1, cliente.calcularQuantidadeFretes());
     }
 
     @Test
