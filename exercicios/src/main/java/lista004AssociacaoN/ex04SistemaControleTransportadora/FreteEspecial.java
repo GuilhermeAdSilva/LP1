@@ -1,0 +1,30 @@
+package lista004AssociacaoN.ex04SistemaControleTransportadora;
+
+public class FreteEspecial extends Frete{
+    private float taxaEntrega;
+
+    public FreteEspecial(Cliente cliente) {
+        super(cliente);
+        this.taxaEntrega = 0;
+    }
+
+    public float getTaxaEntrega() {
+        return this.taxaEntrega;
+    }
+
+    public void setTaxaEntrega(float taxaEntrega) {
+        if (taxaEntrega < 0) {
+            throw new IllegalArgumentException("Taxa invalida");
+        } else {
+            this.taxaEntrega = taxaEntrega;
+        }
+    }
+
+    public float calcularFrete() {
+        return (this.getValorFrete() + this.taxaEntrega);
+    }
+
+    public String getTipoFrete() {
+        return "Frete Especial";
+    }
+}
